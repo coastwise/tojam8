@@ -1,3 +1,7 @@
+Thumbs.db
+.DS_Store
+
+# Unity folders
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -6,3 +10,6 @@
 *.csproj
 *.unityproj
 *.sln
+*.pidb
+*.userprefs
+
