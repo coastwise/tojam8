@@ -4,9 +4,19 @@ using System.Collections;
 public class Countdown : MonoBehaviour {
 
 	public TextMesh textPrefab;
+	
+	private GameObject[] players;
 		
 	void OnEnable () {
 		StartCoroutine(CountdownCoroutine());
+		
+		// we need the players to be active in order to find them...
+		players = GameObject.FindGameObjectsWithTag("Player");
+
+		foreach (GameObject player in players) {
+			player.SetActive(false);
+		}
+
 	}
 	
 	protected IEnumerator CountdownCoroutine () {
@@ -36,6 +46,13 @@ public class Countdown : MonoBehaviour {
 		}
 		
 		Destroy(prevText.gameObject);
+		
+		//Camera.mainCamera.GetComponent<SmoothLookAt>().
+		
+		foreach (GameObject player in players) {
+			Debug.Log(player.name);
+			player.SetActive(true);
+		}
 		
 		yield break;
 	}
