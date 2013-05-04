@@ -14,7 +14,7 @@ Technologies and Libraries
 * Blender
 * Photoshop
 * Unity 4
- * Skyboxes, Terrain, and Camera Scripts from Standard Assets
+ * Skyboxes, Terrain, Camera Scripts, and Lens Flares from Standard Assets
  * Detonator Explosion Framework
  * Pyrite Font by Ray Larabie
  * iTween
