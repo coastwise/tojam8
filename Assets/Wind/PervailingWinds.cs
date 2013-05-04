@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PervailingWinds : MonoBehaviour {
 	
-	private Kite[] kites;
+	private ConstantForce[] kiteForces;
 	
 	// Wind Direction
 	private Vector3 windDirection;
@@ -12,11 +12,14 @@ public class PervailingWinds : MonoBehaviour {
 	// Wind Intensity
 	private float windIntensity;
 	private float desiredWindIntensity;
+	private float windIntensityBlendTime = 2.0f;
 	
 	// Wind Change
 	public int minimumWindChangeTime;
 	public int maximumWindChangeTime;
 	
+	private float windChangeTime;
+	private float currentWindChangeTime;
 	
 	// Use this for initialization
 	void Start () {
@@ -25,7 +28,7 @@ public class PervailingWinds : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		kites = (Kite[])MonoBehaviour.FindObjectsOfType(typeof(Kite[]));
+		kiteForces = (ConstantForce[])MonoBehaviour.FindObjectsOfType(typeof(ConstantForce[]));
 		
 		// Blending
 		BlendWindDirection ();
@@ -36,27 +39,51 @@ public class PervailingWinds : MonoBehaviour {
 			RandomizeWindDirection ();
 			RandomizeWindIntensity ();
 		}
+		
+		UpdateWindChangeTime ();
+		
+		UpdateKites ();
+	}
+	
+	private void UpdateKites () {
+		foreach (ConstantForce cf in kiteForces) {
+			cf.force = windDirection * windIntensity;
+		}
 	}
 	
 	private void BlendWindDirection () {
-		
+		Vector3.Slerp (windDirection, desiredWindDirection, 2.0f);
 	}
 	
 	private void BlendWindIntensity () {
+		windIntensityBlendTime += Time.deltaTime;
 		
+		if (windIntensityBlendTime > 2.0f) {
+			return;
+		}
+		
+		windIntensity += (desiredWindIntensity - windIntensity) * Time.deltaTime;
 	}
 	
 	private void RandomizeWindDirection () {
-		// ...
+		desiredWindDirection = new Vector3(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
 	}
 	
 	private void RandomizeWindIntensity () {
-		// ...
+		desiredWindIntensity = Random.Range (0.0f, 120.0f);
+		windIntensityBlendTime = 0;
 	}
 	
 	private bool ShouldRandomizeWind () {
-		// ...
+		return currentWindChangeTime > windChangeTime;
+	}
+	
+	private void UpdateWindChangeTime () {
+		if (ShouldRandomizeWind()) {
+			windChangeTime = Random.Range (minimumWindChangeTime, maximumWindChangeTime);
+			currentWindChangeTime = 0;
+		}
 		
-		return false;	
+		currentWindChangeTime += Time.deltaTime;
 	}
 }
