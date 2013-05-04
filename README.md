@@ -17,4 +17,5 @@ Technologies and Libraries
  * Skyboxes, Terrain, and Camera Scripts from Standard Assets
  * Detonator Explosion Framework
  * Pyrite Font by Ray Larabie
+ * iTween
  
