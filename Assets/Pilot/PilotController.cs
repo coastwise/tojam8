@@ -23,8 +23,8 @@ public class PilotController : MonoBehaviour {
 		Vector3 v = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 		cc.Move (v * Time.deltaTime * moveVelocity);
 		
-		Rope.Extend (Input.GetAxis("Extend"));
-		Rope.Retract (Input.GetAxis("Retract"));
+		rope.Extend (Input.GetAxis("Extend"));
+		rope.Retract (Input.GetAxis("Retract"));
 	}
 	
 }
