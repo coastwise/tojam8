@@ -23,12 +23,13 @@ public class PervailingWinds : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		windChangeTime = 0;
+		kiteForces = (ConstantForce[])MonoBehaviour.FindObjectsOfType(typeof(ConstantForce));
+		Debug.Log (kiteForces.Length);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		kiteForces = (ConstantForce[])MonoBehaviour.FindObjectsOfType(typeof(ConstantForce));
 		
 		// Blending
 		BlendWindDirection ();
@@ -54,13 +55,13 @@ public class PervailingWinds : MonoBehaviour {
 	}
 	
 	private void BlendWindDirection () {
-		Vector3.Slerp (windDirection, desiredWindDirection, 2.0f);
+		windDirection = Vector3.Slerp (windDirection, desiredWindDirection, 10.0f);
 	}
 	
 	private void BlendWindIntensity () {
 		windIntensityBlendTime += Time.deltaTime;
 		
-		if (windIntensityBlendTime > 2.0f) {
+		if (windIntensityBlendTime > 10.0f) {
 			return;
 		}
 		
@@ -69,10 +70,11 @@ public class PervailingWinds : MonoBehaviour {
 	
 	private void RandomizeWindDirection () {
 		desiredWindDirection = new Vector3(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+		Debug.Log (desiredWindDirection);
 	}
 	
 	private void RandomizeWindIntensity () {
-		desiredWindIntensity = Random.Range (0.0f, 120.0f);
+		desiredWindIntensity = Random.Range (0.0f, 10.0f);
 		windIntensityBlendTime = 0;
 	}
 	
