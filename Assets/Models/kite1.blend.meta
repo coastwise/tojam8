@@ -1,10 +1,35 @@
 fileFormatVersion: 2
-guid: b87f34466c38d2546ad452fe3c270263
+guid: 92aa0cd574b6242019d9191ec0384c10
 ModelImporter:
   serializedVersion: 15
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: Cylinder
+    100002: //RootNode
+    100004: Plane
+    100006: Kite
+    100008: KiteCollider
+    400000: Cylinder
+    400002: //RootNode
+    400004: Plane
+    400006: Kite
+    400008: KiteCollider
+    2300000: Cylinder
+    2300002: Plane
+    2300004: //RootNode
+    2300006: Kite
+    2300008: KiteCollider
+    3300000: Cylinder
+    3300002: Plane
+    3300004: //RootNode
+    3300006: Kite
+    3300008: KiteCollider
+    4300000: Plane
+    4300002: Kite
+    4300004: KiteCollider
+    7400000: Default Take
+    9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
