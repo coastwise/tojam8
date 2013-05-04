@@ -10,7 +10,7 @@ using System.Collections;
 public class Rope : MonoBehaviour {
 	
 	public Rigidbody end;
-	public float resolution;
+	public float resolution = 1;
 	public Material ropeMaterial;
 	
 	void Awake () {
@@ -75,7 +75,7 @@ public class Rope : MonoBehaviour {
 		lastLine.anchor = end.transform;
 		
 		// for some reason, the last segment can't have a normal collider
-		prevSegment.collider.isTrigger = true;
+		//prevSegment.collider.isTrigger = true;
 	}
 	
 	public void Extend (float amount) {
