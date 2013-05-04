@@ -13,6 +13,7 @@ public class PervailingWinds : MonoBehaviour {
 	private float windIntensity;
 	private float desiredWindIntensity;
 	private float windIntensityBlendTime = 2.0f;
+	public float lift = 1.1f;
 	
 	// Wind Change
 	public int minimumWindChangeTime;
@@ -49,7 +50,7 @@ public class PervailingWinds : MonoBehaviour {
 	private void UpdateKites () {
 		if (kiteForces != null && kiteForces.Length > 0) {
 			foreach (ConstantForce cf in kiteForces) {
-				cf.force = windDirection * windIntensity;
+				cf.force = windDirection * windIntensity + Vector3.up*lift;
 			}
 		}
 	}
@@ -69,7 +70,8 @@ public class PervailingWinds : MonoBehaviour {
 	}
 	
 	private void RandomizeWindDirection () {
-		desiredWindDirection = new Vector3(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+		desiredWindDirection = new Vector3(Random.Range(-1.0f, 1.0f), 0f, Random.Range(-1.0f, 1.0f));
+		desiredWindDirection.Normalize();
 		Debug.Log (desiredWindDirection);
 	}
 	
