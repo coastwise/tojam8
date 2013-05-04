@@ -28,7 +28,7 @@ public class PervailingWinds : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		kiteForces = (ConstantForce[])MonoBehaviour.FindObjectsOfType(typeof(ConstantForce[]));
+		kiteForces = (ConstantForce[])MonoBehaviour.FindObjectsOfType(typeof(ConstantForce));
 		
 		// Blending
 		BlendWindDirection ();
@@ -46,8 +46,10 @@ public class PervailingWinds : MonoBehaviour {
 	}
 	
 	private void UpdateKites () {
-		foreach (ConstantForce cf in kiteForces) {
-			cf.force = windDirection * windIntensity;
+		if (kiteForces != null && kiteForces.Length > 0) {
+			foreach (ConstantForce cf in kiteForces) {
+				cf.force = windDirection * windIntensity;
+			}
 		}
 	}
 	
