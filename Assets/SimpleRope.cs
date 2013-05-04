@@ -29,21 +29,20 @@ public class SimpleRope : MonoBehaviour {
 	}
 	
 	public void Retract (float amount) {
-		if (amount > 0.7f) {
+		if (amount > 0.1f) {
 			CharacterJoint cj = pilot.GetComponent<CharacterJoint>();
 			cj.connectedBody = null;
+			//cj.connectedBody = null;
 			Vector3 kiteDirection = pilot.transform.position - kite.transform.position;
 			kiteDirection.Normalize();
 			
-			kite.constantForce.relativeForce = -kite.constantForce.force;
-			kite.transform.position -= (kite.transform.position - pilot.transform.position) * Time.deltaTime;
-			
+			kite.constantForce.enabled = false;
+			kite.transform.position -= (kite.transform.position - (pilot.transform.position + Vector3.up * 2f)) * Time.deltaTime * amount * 0.1f;	
 		} else {
 			CharacterJoint cj = pilot.GetComponent<CharacterJoint>();
-			if (cj.connectedBody == null) {
-				cj.connectedBody = kite.GetComponent<Rigidbody>();
-				kite.constantForce.relativeForce = Vector3.zero;
-			}
+			cj.connectedBody = kite.GetComponent<Rigidbody>();
+			kite.constantForce.relativeForce = Vector3.zero;
+			kite.constantForce.enabled = true;
 		}
 	}
 	
