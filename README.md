@@ -9,3 +9,10 @@ Team Photon Pipeline
 * Farzad Afshari
 * Mike Potvin
 
+Technologies and Libraries
+--------------------------
+* Blender
+* Photoshop
+* Unity 4
+ * Skyboxes, Terrain, and Camera Scripts from Standard Assets
+ 
