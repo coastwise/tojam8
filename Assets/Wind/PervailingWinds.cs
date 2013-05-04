@@ -72,11 +72,10 @@ public class PervailingWinds : MonoBehaviour {
 	private void RandomizeWindDirection () {
 		desiredWindDirection = new Vector3(Random.Range(-1.0f, 1.0f), 0f, Random.Range(-1.0f, 1.0f));
 		desiredWindDirection.Normalize();
-		Debug.Log (desiredWindDirection);
 	}
 	
 	private void RandomizeWindIntensity () {
-		desiredWindIntensity = Random.Range (0.0f, 10.0f);
+		desiredWindIntensity = Random.Range (-2.0f, 2.0f);
 		windIntensityBlendTime = 0;
 	}
 	

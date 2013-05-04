@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent (typeof(CharacterController))]
+[RequireComponent (typeof(SimpleRope))]
 public class PilotController : MonoBehaviour {
 	
-	public Rope rope;
+	private SimpleRope rope;
+	
 	private CharacterController cc;
 	private float moveVelocity = 10.0f;
 	private Vector3 moveDirection = new Vector3(0,0,0);
@@ -13,7 +15,7 @@ public class PilotController : MonoBehaviour {
 	void Start () {
 		cc = GetComponent<CharacterController>();
 		if (rope == null) {
-			rope = gameObject.GetComponentInChildren<Rope>();
+			rope = gameObject.GetComponent<SimpleRope>();
 		}
 	}
 	
