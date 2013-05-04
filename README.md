@@ -15,4 +15,5 @@ Technologies and Libraries
 * Photoshop
 * Unity 4
  * Skyboxes, Terrain, and Camera Scripts from Standard Assets
+ * Detonator Explosion Framework
  
