@@ -49,6 +49,9 @@ public class Rope : MonoBehaviour {
 			collider.radius = 0.1f;
 			collider.height = 1f/resolution;
 			collider.direction = 2; // forward
+			Vector3 whateverV = collider.center;
+			whateverV.z = collider.height/2;
+			collider.center = whateverV;
 			
 			LineRenderer renderer = segment.AddComponent<LineRenderer>();
 			renderer.SetWidth(0.05f, 0.05f);
