@@ -7,7 +7,7 @@ Team Photon Pipeline
 --------------------
 * Patrick McKenna
 * Farzad Afshari
-* Mike Potvin
+* Ryan Roth
 
 Technologies and Libraries
 --------------------------
