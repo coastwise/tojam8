@@ -75,7 +75,7 @@ public class PervailingWinds : MonoBehaviour {
 	}
 	
 	private void RandomizeWindIntensity () {
-		desiredWindIntensity = Random.Range (-2.0f, 2.0f);
+		desiredWindIntensity = Random.Range (-0.5f, 0.5f);
 		windIntensityBlendTime = 0;
 	}
 	

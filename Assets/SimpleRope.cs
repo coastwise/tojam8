@@ -37,7 +37,7 @@ public class SimpleRope : MonoBehaviour {
 			kiteDirection.Normalize();
 			
 			kite.constantForce.enabled = false;
-			kite.transform.position -= (kite.transform.position - (pilot.transform.position + Vector3.up * 2f)) * Time.deltaTime * amount * 0.1f;	
+			kite.transform.position -= (kite.transform.position - (pilot.transform.position)) * Time.deltaTime * amount * 0.2f;	
 		} else {
 			CharacterJoint cj = pilot.GetComponent<CharacterJoint>();
 			cj.connectedBody = kite.GetComponent<Rigidbody>();
