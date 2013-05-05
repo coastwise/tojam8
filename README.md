@@ -18,4 +18,5 @@ Technologies and Libraries
  * Detonator Explosion Framework
  * Pyrite Font by Ray Larabie
  * iTween
+ * Simple Particle Pack
  
