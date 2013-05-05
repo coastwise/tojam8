@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: f3157dfdbc22d407f95fe83d8faf617b
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - effectPrefab: {fileID: 100000, guid: 3c1f0555cc3fd4e1d87382fbaa007f8f, type: 2}
+  - audio: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
