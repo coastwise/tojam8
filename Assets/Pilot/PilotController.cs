@@ -5,6 +5,15 @@ using System.Collections;
 [RequireComponent (typeof(SimpleRope))]
 public class PilotController : MonoBehaviour {
 	
+	public enum PlayerNumber {
+		PLAYER_1 = 1,
+		PLAYER_2,
+		PLAYER_3,
+		PLAYER_4
+	}
+	
+	public PlayerNumber playerNumber;
+	
 	private SimpleRope rope;
 	
 	private CharacterController cc;
@@ -22,11 +31,16 @@ public class PilotController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Moving Pilot
-		Vector3 v = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+		int number = (int)playerNumber;
+		Vector3 v = new Vector3(Input.GetAxis("Horizontal" + number), 0, Input.GetAxis("Vertical" + number));
+		
+		Debug.Log ("Horizontal" + number);
 		cc.Move (v * Time.deltaTime * moveVelocity);
 		
-		rope.Extend (Input.GetAxis("Extend"));
-		rope.Retract (Input.GetAxis("Retract"));
+		rope.Extend (Input.GetAxis("Extend" + number));
+		rope.Retract (Input.GetAxis("Retract" + number));
+		
+		
 	}
 	
 }

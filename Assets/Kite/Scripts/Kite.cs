@@ -15,17 +15,19 @@ public class Kite : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		
 		positionAtCurrentFrame = transform.TransformPoint(transform.position);
-		Debug.Log ("Coordinates Now   : " + positionAtCurrentFrame);
-		Debug.Log ("Coordinates Before: " + positionAtLastFrame);
+		//Debug.Log ("Coordinates Now   : " + positionAtCurrentFrame);
+		//Debug.Log ("Coordinates Before: " + positionAtLastFrame);
 		
 	
 		distanceTraveledSinceLastFrame = Vector3.Distance(positionAtCurrentFrame, positionAtLastFrame);
 		
-		Debug.Log ("Distance          : " + distanceTraveledSinceLastFrame);
+		//Debug.Log ("Distance          : " + distanceTraveledSinceLastFrame);
 		
 		positionAtLastFrame = positionAtCurrentFrame;
 		
-		Debug.Log ("...");
+		//Debug.Log ("...");
 	}
 }
