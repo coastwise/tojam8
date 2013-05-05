@@ -29,6 +29,9 @@ public class Countdown : MonoBehaviour {
 		TextMesh prevText = null;
 		for (int n = 3; n >= 0; n--) {
 			TextMesh currText = Instantiate(textPrefab, pos, rot) as TextMesh;
+			currText.transform.parent = transform;
+			currText.gameObject.layer = LayerMask.NameToLayer("HUD");
+			
 			if (n == 0) {
 				currText.text = "Kite Fight!";
 			} else {
