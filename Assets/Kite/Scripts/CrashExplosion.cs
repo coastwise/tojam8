@@ -19,6 +19,16 @@ public class CrashExplosion : MonoBehaviour {
 			Destroy(this.gameObject);
 			GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
 		}
+		
+		if (them.tag == "Kite") {
+			Kite themKite = them.GetComponent<Kite>();
+			Kite me = GetComponent<Kite>();
+			
+			if (me.distanceTraveledSinceLastFrame < themKite.distanceTraveledSinceLastFrame) {
+				Destroy(this.gameObject);
+				GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
+			}
+		}
 	}
 	
 }
