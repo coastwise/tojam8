@@ -28,8 +28,8 @@ public class DuelController : MonoBehaviour {
 		Vector3 force = new Vector3(x, 0, y);
 		force.Normalize();
 		*/
-		rigidbody.AddRelativeForce(Vector3.forward * Input.GetAxis("Vertical"+controller));
-		rigidbody.AddRelativeTorque(Vector3.up * Input.GetAxis("Horizonta"+controller));
+		rigidbody.AddRelativeForce(Vector3.forward * Input.GetAxis("Vertical"+controller) * 5f);
+		rigidbody.AddRelativeTorque(Vector3.up * Input.GetAxis("Horizontal"+controller) * 5f);
 		//rigidbody.AddRelativeForce
 		if (Input.GetButtonDown("Retract2")) {
 			Debug.Log("retract");

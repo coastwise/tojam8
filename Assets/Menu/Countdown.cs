@@ -79,6 +79,6 @@ public class Countdown : MonoBehaviour {
 		iTween.MoveTo(currText.gameObject, transform.position, 1f);
 		yield return new WaitForSeconds(5f);
 		
-		Application.LoadLevel(Application.loadedLevelName);
+		Application.LoadLevel(0);
 	}
 }
